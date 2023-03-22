@@ -14,6 +14,8 @@ frameButton = Frame(mainWindow)
 addProductButton = Button(frameButton,text="Ajouter un produit",command=SelectFrom.addData)
 deleteProductButton = Button(frameButton,text="Supprimer un produit",command= SelectFrom.deleteProduct)
 modifyProductButton = Button(frameButton,text="Modifier un produit",command=SelectFrom.changeData)
+#L'affichage de la liste des produits se met à jour seulement au lancement du programme
+# je n'arrive pas à faire un tableau qui se met à jour en temps réel
 listProduct = Button(frameButton,text="Afficher la liste des produits",command=SelectFrom.productList)
 
 frameButton.grid(row=1,column=0)
