@@ -7,7 +7,7 @@ from produit import Produit
 class Query:
     def __init__(self) -> None:
         self.__conn = mysql.connector.connect(host="127.0.0.1",
-                               user="root", password="root", 
+                               user="root", password="", 
                                database="boutique")
         
     def addOnTab(self,tab):
@@ -19,6 +19,7 @@ class Query:
         for enreg in resultat:
             tab.insert('', 'end', iid=enreg[0], values=(enreg[0],enreg[1], enreg[2], enreg[3],enreg[4],enreg[5]))
 
+        cursor.reset()
         cursor.close()
 
             
@@ -56,6 +57,8 @@ class Query:
         dataTab['show'] = 'headings'
         dataTab.grid(row=1,column=0,padx = 10, pady = (0, 10))
         self.addOnTab(dataTab)
+
+        newScreen.mainloop()
 
 
     def addData(self):
@@ -152,6 +155,7 @@ class Query:
                 listCateg.append(f"{elements[0]} - {elements[1]}")
             categ.config(values=listCateg)
             categ.current(id_cat-1)
+            cursor.close()
 
             Label(newWin,text="Modification du produit").grid(row=0,column=0)
             
